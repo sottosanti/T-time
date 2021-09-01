@@ -18,8 +18,11 @@ $ sudo apt install libcurl-dev
 ```
 
 ## Running
-Open a terminal and navigate to this directory
+Open a terminal and navigate to this directory <br>
+Add icon to local icon folder
 ```
+$ mkdir ~/.local/share/icons/sports
+$ cp icon/golf.png ~/.local/share/icons/sports/ 
 $ make
 ```
 Then every morning... in the same directory...
