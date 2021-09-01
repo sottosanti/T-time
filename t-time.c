@@ -120,8 +120,7 @@ void process_tee_times(void)
                         strcat(body, token);
                         break;
                     case 1 ... 3:
-                        strcat(body, strcat(comma, token));
-                        strcpy(comma, ", ");
+                        strcat(strcat(body, comma), token);
                         break;
                     case 4:
                         strcat(body, dotdotdot);
@@ -141,8 +140,8 @@ void process_tee_times(void)
         strcat(summary, " new Tee Times for 09/06/2021!\" ");
 
         //full command
-        char command[128] = "\0";
-        strcat(command, "notify-send ");
+        char command[256] = "\0";
+        strcat(command, "notify-send -i ~/.local/share/icons/sports/golf.png ");
         strcat(command, summary);
         strcat(command, body);
 
