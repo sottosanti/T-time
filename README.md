@@ -1,6 +1,6 @@
 # T-time
 
-I run this on Ubuntu 20.04
+I run this on my PC that has Ubuntu 20.04 installed
 
 ## About
 
