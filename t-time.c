@@ -24,37 +24,37 @@ process_tee_times(void);
 
 int main(void)
 {
-    // CURL *curl = curl_easy_init();
+    CURL *curl = curl_easy_init();
 
-    // if(!curl) {
-    //     fprintf(stderr, "init failed\n");
-    //     return EXIT_FAILURE;
-    // }
+    if(!curl) {
+        fprintf(stderr, "init failed\n");
+        return EXIT_FAILURE;
+    }
 
-    // /* Data Fields 
-    // char p01[] = "p01=4549&"; // Golf Courses, 4549 is Galloping Hill 18
-    // char p02[] = "p02=09/06/2021&"; // Date
-    // char p03[] = "p03=5:00AM&"; // Start time for search
-    // char p04[] = "p04=2:00PM&"; // End time for search
-    // char p05[] = "p05=0&"; // IDK
-    // char p06[] = "p06=4&"; // Number of players, 1 - 4
-    // char p07[] = "p07=false"; // IDK
-    // */
+    /* Data Fields 
+    char p01[] = "p01=4549&"; // Golf Courses, 4549 is Galloping Hill 18
+    char p02[] = "p02=09/06/2021&"; // Date
+    char p03[] = "p03=5:00AM&"; // Start time for search
+    char p04[] = "p04=2:00PM&"; // End time for search
+    char p05[] = "p05=0&"; // IDK
+    char p06[] = "p06=4&"; // Number of players, 1 - 4
+    char p07[] = "p07=false"; // IDK
+    */
 
-    // char data[] = "p01=4549&p02=09/06/2021&p03=5:00AM&p04=8:00PM&p05=0&p06=4&p07=false";  
+    char data[] = "p01=4549&p02=09/06/2021&p03=5:00AM&p04=2:00PM&p05=0&p06=4&p07=false";  
 
-    // // set options
-    // curl_easy_setopt(curl, CURLOPT_URL, "https://unioncounty7day.ezlinksgolf.com/api/search/search");
-    // curl_easy_setopt(curl, CURLOPT_POST, 1L);
-    // curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
-    // curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_tee_times);
+    // set options
+    curl_easy_setopt(curl, CURLOPT_URL, "https://unioncounty7day.ezlinksgolf.com/api/search/search");
+    curl_easy_setopt(curl, CURLOPT_POST, 1L);
+    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_tee_times);
 
-    // // perform out action
-    // CURLcode result = curl_easy_perform(curl);
-    // if(result != CURLE_OK) {
-    //     fprintf(stderr, "download problem: %s\n", curl_easy_strerror(result));
-    // }
-    // curl_easy_cleanup(curl);
+    // perform out action
+    CURLcode result = curl_easy_perform(curl);
+    if(result != CURLE_OK) {
+        fprintf(stderr, "download problem: %s\n", curl_easy_strerror(result));
+    }
+    curl_easy_cleanup(curl);
     
     // Parse data in file and see if there are any tee times 
     process_tee_times();
