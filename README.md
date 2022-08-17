@@ -8,12 +8,12 @@ Getting a tee time at my local golf course has been very hard and annoying. I fo
 
 ## Dependencies
 - at
-``` bash
+``` 
 sudo apt install -y at
 sudo systemctl enable --now atd.service
 ```
 - libcurl-dev
-```bash
+```
 sudo apt install libcurl-dev
 ```
 
